@@ -9,10 +9,6 @@ import com.meme.order.OrderServiceImpl;
 
 public class AppConfig {
 
-  public MemberService memberService() {
-    return new MemberServiceImpl(getMemberRepository());
-  }
-
   private FixDiscountPolicy getDiscountPolicy() {
     return new FixDiscountPolicy();
   }
@@ -21,6 +17,10 @@ public class AppConfig {
     return new MemoryMemberRepository();
   }
 
+  public MemberService memberService() {
+    return new MemberServiceImpl(getMemberRepository());
+  }
+  
   public OrderService orderService() {
     return new OrderServiceImpl(getMemberRepository(), getDiscountPolicy());
   }
