@@ -3,11 +3,13 @@ package com.meme.code;
 import com.meme.member.Grade;
 import com.meme.member.Member;
 import com.meme.member.MemberService;
-import com.meme.member.MemberServiceImpl;
 
 public class MemberApp {
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    // 개선 MemberService memberService = new MemberServiceImpl();
+
     Member member = new Member(1L, "memberA", Grade.VIP);
     memberService.join(member);
 

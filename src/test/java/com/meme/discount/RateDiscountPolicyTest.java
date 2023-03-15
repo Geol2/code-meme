@@ -1,7 +1,5 @@
 package com.meme.discount;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.meme.member.Grade;
 import com.meme.member.Member;
 import org.assertj.core.api.Assertions;
