@@ -6,21 +6,25 @@ import com.meme.member.MemberServiceImpl;
 import com.meme.member.MemoryMemberRepository;
 import com.meme.order.OrderService;
 import com.meme.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
-  private FixDiscountPolicy getDiscountPolicy() {
+  @Bean
+  public FixDiscountPolicy getDiscountPolicy() {
     return new FixDiscountPolicy();
   }
-
-  private MemoryMemberRepository getMemberRepository() {
+  @Bean
+  public MemoryMemberRepository getMemberRepository() {
     return new MemoryMemberRepository();
   }
-
+  @Bean
   public MemberService memberService() {
     return new MemberServiceImpl(getMemberRepository());
   }
-  
+  @Bean
   public OrderService orderService() {
     return new OrderServiceImpl(getMemberRepository(), getDiscountPolicy());
   }
